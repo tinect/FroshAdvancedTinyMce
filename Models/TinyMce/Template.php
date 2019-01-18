@@ -1,6 +1,6 @@
 <?php
 
-namespace Shopware\CustomModels\TinyMce;
+namespace FroshAdvancedTinyMce\Models\TinyMce;
 use Shopware\Components\Model\ModelEntity,
     Doctrine\ORM\Mapping as ORM;
 
