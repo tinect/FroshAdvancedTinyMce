@@ -10,7 +10,7 @@ class BackendSubscriber implements SubscriberInterface
 
     private $config;
 
-    public function __construct($pluginPath, $config)
+    public function __construct($pluginPath, array $config)
     {
         $this->pluginPath = $pluginPath;
         $this->config = $config;
@@ -19,7 +19,7 @@ class BackendSubscriber implements SubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            'Enlight_Controller_Action_PostDispatch_Backend_Config' => 'onPostDispatchBackendConfig',
+            'Enlight_Controller_Action_PostDispatchSecure_Backend_Config' => 'onPostDispatchBackendConfig',
             'Enlight_Controller_Action_PostDispatch_Backend_Index' => 'onPostDispatchBackendIndex',
         ];
     }

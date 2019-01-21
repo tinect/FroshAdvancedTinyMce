@@ -27,12 +27,13 @@ class FroshAdvancedTinyMce extends Plugin
      */
     public function uninstall(UninstallContext $context)
     {
-        if (!$context->keepUserData()) {
-            $schemaTool = new SchemaTool($this->container->get('models'));
-            $schemaTool->dropSchema(
-                $this->getClassesMetaData()
-            );
+        if ($context->keepUserData()) {
+            return;
         }
+        $schemaTool = new SchemaTool($this->container->get('models'));
+        $schemaTool->dropSchema(
+            $this->getClassesMetaData()
+        );
     }
 
     private function getClassesMetaData()
