@@ -3,8 +3,8 @@
 //{block name="backend/config/controller/form"}
 //{$smarty.block.parent}
 Ext.define('Shopware.apps.Config.model.form.TinyMce', {
-    extend:'Ext.data.Model',
-    fields:[
+    extend: 'Ext.data.Model',
+    fields: [
         { name:'id', type:'int' },
         { name:'name', type:'string' },
         { name:'description', type:'string', useNull:true },
@@ -12,21 +12,21 @@ Ext.define('Shopware.apps.Config.model.form.TinyMce', {
     ]
 });
 Ext.define('Shopware.apps.Config.store.form.TinyMce', {
-    model:'Shopware.apps.Config.model.form.TinyMce',
-    remoteSort:true,
-    remoteFilter:true,
-    pageSize:20,
-    proxy:{
-        type:'ajax',
-        url:'{url controller=tinyMce action=getTemplateList}',
-        api:{
-            create:'{url controller=tinyMce action=saveTemplate}',
-            update:'{url controller=tinyMce action=saveTemplate}',
-            destroy:'{url controller=tinyMce action=deleteTemplate}'
+    model: 'Shopware.apps.Config.model.form.TinyMce',
+    remoteSort: true,
+    remoteFilter: true,
+    pageSize: 20,
+    proxy: {
+        type: 'ajax',
+        url: '{url controller=tinyMce action=getTemplateList}',
+        api: {
+            create: '{url controller=tinyMce action=saveTemplate}',
+            update: '{url controller=tinyMce action=saveTemplate}',
+            destroy: '{url controller=tinyMce action=deleteTemplate}'
         },
-        reader:{
-            type:'json',
-            root:'data'
+        reader: {
+            type: 'json',
+            root: 'data'
         }
     }
 });
@@ -38,7 +38,7 @@ Ext.define('Shopware.apps.Config.view.form.TinyMce', {
     activeTab: 0,
     deferredRender: false,
 
-    initComponent:function () {
+    initComponent: function () {
         var me = this;
 
         Ext.applyIf(me, {
@@ -48,11 +48,11 @@ Ext.define('Shopware.apps.Config.view.form.TinyMce', {
         me.callParent(arguments);
     },
 
-    getStore:function () {
+    getStore: function () {
         return Ext.create('Shopware.apps.Config.store.form.TinyMce');
     },
 
-    getItems: function() {
+    getItems: function () {
         var me = this;
         return [
             me.getConfigForm(),
@@ -60,7 +60,7 @@ Ext.define('Shopware.apps.Config.view.form.TinyMce', {
         ];
     },
 
-    getConfigForm: function() {
+    getConfigForm: function () {
         var me = this;
         return {
             xtype: 'config-main-form',
@@ -70,7 +70,7 @@ Ext.define('Shopware.apps.Config.view.form.TinyMce', {
         };
     },
 
-    getFieldForm: function() {
+    getFieldForm: function () {
         var me = this;
         return {
             xtype: 'config-base-form',
@@ -83,14 +83,14 @@ Ext.define('Shopware.apps.Config.view.form.TinyMce', {
                 store: me.getStore(),
                 searchField: 'name',
                 columns: me.getColumns()
-            },{
+            }, {
                 xtype: 'config-base-detail',
                 items: me.getFormItems()
             }]
         };
     },
 
-    getColumns: function() {
+    getColumns: function () {
         var me = this;
         return [{
             dataIndex: 'name',
@@ -103,24 +103,24 @@ Ext.define('Shopware.apps.Config.view.form.TinyMce', {
         }];
     },
 
-    getFormItems: function() {
+    getFormItems: function () {
         var me = this;
         return [{
             name: 'name',
             fieldLabel: '{s name=tinymce/detail/name}Title{/s}',
             allowBlank: false
-        },{
+        }, {
             name: 'description',
             fieldLabel: '{s name=tinymce/detail/description}Description{/s}'
-        },{
+        }, {
             xtype: 'displayfield',
-            fieldLabel: '{s name=tinymce/detail/description}Description{/s}',
+            fieldLabel: '{s name=tinymce/detail/content}Content{/s}',
             style: 'padding-bottom: 5px'
-        },{
+        }, {
             xtype: 'codemirror',
             name: 'content',
             mode: 'htmlmixed',
-            anchor:'100%',
+            anchor: '100%',
             height: '240px',
             hideLabel: true,
             fieldLabel: '{s name=tinymce/detail/content}Content{/s}'
