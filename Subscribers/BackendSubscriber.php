@@ -24,7 +24,7 @@ class BackendSubscriber implements SubscriberInterface
         ];
     }
 
-    function onPostDispatchBackendIndex(\Enlight_Controller_ActionEventArgs $args)
+    public function onPostDispatchBackendIndex(\Enlight_Controller_ActionEventArgs $args)
     {
         $request = $args->getRequest();
         $view = $args->getSubject()->View();

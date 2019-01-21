@@ -8,7 +8,7 @@ class Shopware_Controllers_Backend_TinyMce extends Shopware_Controllers_Backend_
     public function preDispatch()
     {
         $this->View()->addTemplateDir($this->container->getParameter('frosh_advanced_tiny_mce.plugin_dir') . '/Resources/views');
-        if (!in_array($this->Request()->getActionName(), array('getRawTemplateList'))) {
+        if (!in_array($this->Request()->getActionName(), ['getRawTemplateList'])) {
             parent::preDispatch();
         }
     }
@@ -38,13 +38,13 @@ class Shopware_Controllers_Backend_TinyMce extends Shopware_Controllers_Backend_
     {
         $repository = $this->getTemplateRepository();
         $query = $repository->queryBy(
-            (array)$this->Request()->getParam('filter', array()),
-            (array)$this->Request()->getParam('order', array()),
-            (int)$this->Request()->getParam('limit', 30),
-            (int)$this->Request()->getParam('start', 0)
+            (array) $this->Request()->getParam('filter', []),
+            (array) $this->Request()->getParam('order', []),
+            (int) $this->Request()->getParam('limit', 30),
+            (int) $this->Request()->getParam('start', 0)
         );
         $data = $query->getArrayResult();
-        $this->View()->assign(array('success' => true, 'data' => $data));
+        $this->View()->assign(['success' => true, 'data' => $data]);
     }
 
     public function saveTemplateAction()
@@ -69,10 +69,10 @@ class Shopware_Controllers_Backend_TinyMce extends Shopware_Controllers_Backend_
 
         $data['id'] = $model->getId();
 
-        $this->View()->assign(array(
+        $this->View()->assign([
             'success' => true,
-            'data' => $data
-        ));
+            'data' => $data,
+        ]);
     }
 
     public function deleteTemplateAction()
@@ -83,24 +83,24 @@ class Shopware_Controllers_Backend_TinyMce extends Shopware_Controllers_Backend_
         $model = $repository->find($id);
         $manager->remove($model);
         $manager->flush();
-        $this->View()->assign(array(
-            'success' => true
-        ));
+        $this->View()->assign([
+            'success' => true,
+        ]);
     }
 
     public function getRawTemplateListAction()
     {
         $repository = $this->getTemplateRepository();
         $queryBuilder = $repository->createQueryBuilder('t');
-        $queryBuilder->select(array(
+        $queryBuilder->select([
             't.name',
             't.description',
             't.content',
-        ));
+        ]);
         $query = $queryBuilder->getQuery();
         $templates = $query->getArrayResult();
-        $this->View()->assign(array(
-            'templates' => $templates
-        ));
+        $this->View()->assign([
+            'templates' => $templates,
+        ]);
     }
 }

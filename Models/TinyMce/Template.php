@@ -2,8 +2,8 @@
 
 namespace FroshAdvancedTinyMce\Models\TinyMce;
 
-use Shopware\Components\Model\ModelEntity,
-    Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping as ORM;
+use Shopware\Components\Model\ModelEntity;
 
 /**
  * @ORM\Table(name="s_plugin_tiny_mce_templates")
@@ -12,7 +12,7 @@ use Shopware\Components\Model\ModelEntity,
 class Template extends ModelEntity
 {
     /**
-     * @var integer $id
+     * @var int
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -20,19 +20,19 @@ class Template extends ModelEntity
     private $id;
 
     /**
-     * @var string $name
+     * @var string
      * @ORM\Column(name="title", type="string", nullable=false)
      */
     private $name;
 
     /**
-     * @var string $description
+     * @var string
      * @ORM\Column(name="description", type="string", nullable=true)
      */
     private $description;
 
     /**
-     * @var string $content
+     * @var string
      * @ORM\Column(name="content", type="text", nullable=true)
      */
     private $content;
