@@ -42,10 +42,6 @@ class BackendSubscriber implements SubscriberInterface
     {
         $view = $args->getSubject()->View();
 
-        if (!$view->hasTemplate()) {
-            return;
-        }
-
         $view->addTemplateDir($this->pluginPath . '/Resources/views');
         $view->extendsTemplate('backend/config/tiny_mce.js');
     }
