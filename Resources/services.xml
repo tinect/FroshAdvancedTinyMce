@@ -7,7 +7,8 @@
             <factory service="shopware.plugin.cached_config_reader" method="getByPluginName"/>
             <argument type="string">%frosh_advanced_tiny_mce.plugin_name%</argument>
         </service>
-        <service id="frosh_advanced_tiny_mce.subscribers.backend" class="FroshAdvancedTinyMce\Subscribers\BackendSubscriber">
+        <service id="frosh_advanced_tiny_mce.subscribers.backend"
+                 class="FroshAdvancedTinyMce\Subscribers\BackendSubscriber">
             <argument>%frosh_advanced_tiny_mce.plugin_dir%</argument>
             <argument type="service" id="frosh_advanced_tiny_mce.config"/>
             <tag name="shopware.event_subscriber"/>

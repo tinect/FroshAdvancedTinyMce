@@ -7,18 +7,9 @@ use FroshAdvancedTinyMce\Models\TinyMce\Template;
 use Shopware\Components\Plugin;
 use Shopware\Components\Plugin\Context\InstallContext;
 use Shopware\Components\Plugin\Context\UninstallContext;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class FroshAdvancedTinyMce extends Plugin
 {
-    public function build(ContainerBuilder $container)
-    {
-        $container->setParameter('frosh_advanced_tiny_mce.plugin_dir', $this->getPath());
-        $container->setParameter('frosh_advanced_tiny_mce.plugin_name', $this->getName());
-
-        parent::build($container);
-    }
-
     /**
      * @param InstallContext $context
      */

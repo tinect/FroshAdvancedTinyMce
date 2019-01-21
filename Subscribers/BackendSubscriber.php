@@ -21,7 +21,6 @@ class BackendSubscriber implements SubscriberInterface
         return [
             'Enlight_Controller_Action_PostDispatch_Backend_Config' => 'onPostDispatchBackendConfig',
             'Enlight_Controller_Action_PostDispatch_Backend_Index' => 'onPostDispatchBackendIndex',
-            'Enlight_Controller_Dispatcher_ControllerPath_Backend_TinyMce' => 'getBackendControllerPath'
         ];
     }
 
@@ -30,7 +29,7 @@ class BackendSubscriber implements SubscriberInterface
         $request = $args->getRequest();
         $view = $args->getSubject()->View();
 
-        if($request->getActionName() != 'index') {
+        if ($request->getActionName() != 'index') {
             return;
         }
 
@@ -41,7 +40,6 @@ class BackendSubscriber implements SubscriberInterface
 
     public function onPostDispatchBackendConfig(\Enlight_Controller_ActionEventArgs $args)
     {
-        $request = $args->getRequest();
         $view = $args->getSubject()->View();
 
         if (!$view->hasTemplate()) {
@@ -50,10 +48,5 @@ class BackendSubscriber implements SubscriberInterface
 
         $view->addTemplateDir($this->pluginPath . '/Resources/views');
         $view->extendsTemplate('backend/config/tiny_mce.js');
-    }
-
-    public function getBackendControllerPath(\Enlight_Event_EventArgs $args)
-    {
-        return $this->pluginPath . '/Controllers/Backend/TinyMce.php';
     }
 }
