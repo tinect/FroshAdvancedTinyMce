@@ -29,19 +29,18 @@
         <element type="boolean">
             <name>useExtendedValidElements</name>
             <label>Konfiguartion „extended_valid_elements“ verwenden</label>
-            <value>0</value>
+            <value>1</value>
         </element>
         <element type="textarea">
             <name>extendedValidElements</name>
             <label>Konfiguartion „extended_valid_elements“</label>
             <value><![CDATA[font[size],
 iframe[frameborder|src|width|height|name|align|allowfullscreen|id|class|style],
-script[src|type],
+script[language|type|src],
 object[width|height|classid|codebase|ID|value],param[name|value],
 embed[name|src|type|wmode|width|height|style|allowScriptAccess|menu|quality|pluginspage],
 video[autoplay|class|controls|id|lang|loop|onclick|ondblclick|onkeydown|onkeypress|onkeyup|onmousedown|onmousemove|onmouseout|onmouseover|onmouseup|preload|poster|src|style|title|width|height],
-audio[autoplay|class|controls|id|lang|loop|onclick|ondblclick|onkeydown|onkeypress|onkeyup|onmousedown|onmousemove|onmouseout|onmouseover|onmouseup|preload|src|style|title]
-]]></value>
+audio[autoplay|class|controls|id|lang|loop|onclick|ondblclick|onkeydown|onkeypress|onkeyup|onmousedown|onmousemove|onmouseout|onmouseover|onmouseup|preload|src|style|title]]]></value>
         </element>
         <element type="boolean">
             <name>usePlugins</name>
@@ -51,11 +50,9 @@ audio[autoplay|class|controls|id|lang|loop|onclick|ondblclick|onkeydown|onkeypre
         <element type="textarea">
             <name>plugins</name>
             <label>Konfiguartion „plugins“</label>
-            <value><![CDATA[
-visualblocks,media_selection,safari,pagebreak,style,layer,table,iespell,inlinepopups,
+            <value><![CDATA[visualblocks,media_selection,safari,pagebreak,style,layer,table,iespell,inlinepopups,
 insertdatetime,preview,searchreplace,print,contextmenu,paste,directionality,fullscreen,
-visualchars,nonbreaking,xhtmlxtras,template
-]]></value>
+visualchars,nonbreaking,xhtmlxtras,template]]></value>
         </element>
         <element type="boolean">
             <name>useThemeAdvancedButtons</name>

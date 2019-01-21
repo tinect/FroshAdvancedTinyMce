@@ -1,4 +1,4 @@
-# Advanced TinyMce 
+# Advanced TinyMCE
 
 [![Join the chat at https://gitter.im/FriendsOfShopware/Lobby](https://badges.gitter.im/FriendsOfShopware/Lobby.svg)](https://gitter.im/FriendsOfShopware/Lobby)
 
@@ -6,6 +6,7 @@ Features:
 
 - Configure templates and use it in the editor
 - All editor configurations can be edit over backend
+- Add javascript in the description
 
 ## Requirements
 
