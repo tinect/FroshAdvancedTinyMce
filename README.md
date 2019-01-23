@@ -2,7 +2,7 @@
 
 [![Join the chat at https://gitter.im/FriendsOfShopware/Lobby](https://badges.gitter.im/FriendsOfShopware/Lobby.svg)](https://gitter.im/FriendsOfShopware/Lobby)
 
-![Preview](Resources/store/images/backend-config.png)
+![Preview](Resources/store/images/backend-config.jpg)
 
 Features:
 - Configure templates and use it in the editor
